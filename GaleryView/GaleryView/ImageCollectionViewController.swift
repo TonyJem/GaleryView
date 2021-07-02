@@ -19,7 +19,7 @@ final class ImageCollectionViewController: UICollectionViewController {
     
     @IBAction func clearSearchButtonAction(_ sender: UIBarButtonItem) {
         print("🟢 Clear Search button did tapped!")
-        clearSearchTextField()
+        clearUI()
     }
 }
 
@@ -29,7 +29,7 @@ private extension ImageCollectionViewController {
         return searches[indexPath.section].searchResults[indexPath.row]
     }
     
-    func clearSearchTextField() {
+    func clearUI() {
         searches = []
         collectionView?.reloadData()
         searchTextField.text = nil
@@ -65,7 +65,7 @@ extension ImageCollectionViewController: UITextFieldDelegate {
                 }
             }
         }
-        clearSearchTextField()
+        clearUI()
         return true
     }
 }
