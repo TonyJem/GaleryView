@@ -1,6 +1,6 @@
 import UIKit
 
-class ViewController: UIViewController {
+final class ImageCollectionViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
