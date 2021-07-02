@@ -30,6 +30,8 @@ private extension ImageCollectionViewController {
     }
     
     func clearSearchTextField() {
+        searches = []
+        collectionView?.reloadData()
         searchTextField.text = nil
         searchTextField.resignFirstResponder()
     }
