@@ -16,6 +16,7 @@
 		3A06C07C268F9116008E3921 /* Flickr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A06C07B268F9116008E3921 /* Flickr.swift */; };
 		3A06C07F268F9123008E3921 /* FlickrImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A06C07E268F9123008E3921 /* FlickrImage.swift */; };
 		3A06C082268F9136008E3921 /* FlickrSearchResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A06C081268F9136008E3921 /* FlickrSearchResults.swift */; };
+		3A06C089268FA6A6008E3921 /* FlickrImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A06C088268FA6A6008E3921 /* FlickrImageCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		3A06C07B268F9116008E3921 /* Flickr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flickr.swift; sourceTree = "<group>"; };
 		3A06C07E268F9123008E3921 /* FlickrImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrImage.swift; sourceTree = "<group>"; };
 		3A06C081268F9136008E3921 /* FlickrSearchResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrSearchResults.swift; sourceTree = "<group>"; };
+		3A06C088268FA6A6008E3921 /* FlickrImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrImageCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				3A06C05F268F6B14008E3921 /* SceneDelegate.swift */,
 				3A06C063268F6B14008E3921 /* Main.storyboard */,
 				3A06C078268F8C9A008E3921 /* ImageCollectionViewController.swift */,
+				3A06C088268FA6A6008E3921 /* FlickrImageCell.swift */,
 				3A06C066268F6B15008E3921 /* Assets.xcassets */,
 				3A06C068268F6B15008E3921 /* LaunchScreen.storyboard */,
 				3A06C06B268F6B15008E3921 /* Info.plist */,
@@ -159,6 +162,7 @@
 				3A06C07C268F9116008E3921 /* Flickr.swift in Sources */,
 				3A06C079268F8C9A008E3921 /* ImageCollectionViewController.swift in Sources */,
 				3A06C05E268F6B14008E3921 /* AppDelegate.swift in Sources */,
+				3A06C089268FA6A6008E3921 /* FlickrImageCell.swift in Sources */,
 				3A06C060268F6B14008E3921 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
