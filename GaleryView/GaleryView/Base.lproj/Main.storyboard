@@ -44,8 +44,16 @@
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" returnKeyType="search"/>
                         </textField>
-                        <barButtonItem key="rightBarButtonItem" title="Clear" id="ZNU-2B-Xgi"/>
+                        <barButtonItem key="rightBarButtonItem" title="Clear" id="ZNU-2B-Xgi">
+                            <connections>
+                                <action selector="clearSearchButtonAction:" destination="3bc-Ys-epx" id="3cW-UM-5Ej"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="clearSearchButton" destination="ZNU-2B-Xgi" id="2Rg-EG-SoU"/>
+                        <outlet property="searchTextField" destination="LMh-vj-joA" id="y3F-Jn-QDF"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MZW-jb-gpb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
