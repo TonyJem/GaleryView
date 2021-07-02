@@ -66,3 +66,20 @@ extension ImageCollectionViewController: UITextFieldDelegate {
         return true
     }
 }
+
+// MARK: - CollectionView DataSource
+extension ImageCollectionViewController {
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return searches.count
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return searches[section].searchResults.count
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        cell.backgroundColor = .black
+        return cell
+    }
+}
