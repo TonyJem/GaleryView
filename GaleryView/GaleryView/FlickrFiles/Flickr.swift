@@ -1,9 +1,9 @@
 import UIKit
 
-let apiKey = "1ee22a210a7e555666ba0fd78925619b"
+private let apiKey = "1ee22a210a7e555666ba0fd78925619b"
 
 class Flickr {
-    enum Error: Swift.Error {
+    private enum Error: Swift.Error {
         case unknownAPIResponse
         case generic
     }
@@ -39,7 +39,7 @@ class Flickr {
                 
                 switch stat {
                 case "ok":
-                    print("Results processed OK")
+                    print("🟢 Results processed OK")
                 case "fail":
                     completion(.failure(Error.generic))
                     return
@@ -66,8 +66,11 @@ class Flickr {
         }
         .resume()
     }
-    
-    private func getPhotos(photoData: [[String: AnyObject]]) -> [FlickrImage] {
+}
+
+// MARK: - Private
+private extension Flickr {
+    func getPhotos(photoData: [[String: AnyObject]]) -> [FlickrImage] {
         let photos: [FlickrImage] = photoData.compactMap { photoObject in
             guard
                 let photoID = photoObject["id"] as? String,
@@ -97,7 +100,7 @@ class Flickr {
         return photos
     }
     
-    private func flickrSearchURL(for searchTerm: String) -> URL? {
+    func flickrSearchURL(for searchTerm: String) -> URL? {
         guard let escapedTerm = searchTerm.addingPercentEncoding(withAllowedCharacters: CharacterSet.alphanumerics) else {
             return nil
         }

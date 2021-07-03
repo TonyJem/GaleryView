@@ -37,6 +37,10 @@ private extension ImageCollectionViewController {
         searchTextField.text = nil
         searchTextField.resignFirstResponder()
     }
+    
+    func performSegue() {
+        performSegue(withIdentifier: "showImageDetailsVC", sender: nil)
+    }
 }
 
 // MARK: - Search TextField Delegate
@@ -105,10 +109,6 @@ extension ImageCollectionViewController {
             let destinationVC = segue.destination as! ImageDetailsViewController
             destinationVC.flickrImage = image(for: selectedIndexPath)
         }
-    }
-    
-    private func performSegue() {
-        performSegue(withIdentifier: "showImageDetailsVC", sender: nil)
     }
 }
 
