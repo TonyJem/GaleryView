@@ -20,19 +20,15 @@ class Flickr {
                 return
             }
             
-            guard
-                (response as? HTTPURLResponse) != nil,
-                let data = data
-            else {
+            guard (response as? HTTPURLResponse) != nil,
+                  let data = data else {
                 completion(.failure(Error.unknownAPIResponse))
                 return
             }
             
             do {
-                guard
-                    let resultsDictionary = try JSONSerialization.jsonObject(with: data) as? [String: AnyObject],
-                    let stat = resultsDictionary["stat"] as? String
-                else {
+                guard let resultsDictionary = try JSONSerialization.jsonObject(with: data) as? [String: AnyObject],
+                      let stat = resultsDictionary["stat"] as? String else {
                     completion(.failure(Error.unknownAPIResponse))
                     return
                 }
@@ -48,10 +44,8 @@ class Flickr {
                     return
                 }
                 
-                guard
-                    let photosContainer = resultsDictionary["photos"] as? [String: AnyObject],
-                    let photosReceived = photosContainer["photo"] as? [[String: AnyObject]]
-                else {
+                guard let photosContainer = resultsDictionary["photos"] as? [String: AnyObject],
+                      let photosReceived = photosContainer["photo"] as? [[String: AnyObject]] else {
                     completion(.failure(Error.unknownAPIResponse))
                     return
                 }
@@ -72,23 +66,15 @@ class Flickr {
 private extension Flickr {
     func getPhotos(photoData: [[String: AnyObject]]) -> [FlickrImage] {
         let photos: [FlickrImage] = photoData.compactMap { photoObject in
-            guard
-                let photoID = photoObject["id"] as? String,
-                let farm = photoObject["farm"] as? Int ,
-                let server = photoObject["server"] as? String ,
-                let secret = photoObject["secret"] as? String
-            else {
-                return nil
-            }
+            guard let photoID = photoObject["id"] as? String,
+                  let farm = photoObject["farm"] as? Int,
+                  let server = photoObject["server"] as? String,
+                  let secret = photoObject["secret"] as? String else { return nil }
             
             let flickrPhoto = FlickrImage(photoID: photoID, farm: farm, server: server, secret: secret)
             
-            guard
-                let url = flickrPhoto.flickrImageURL(),
-                let imageData = try? Data(contentsOf: url as URL)
-            else {
-                return nil
-            }
+            guard let url = flickrPhoto.flickrImageURL(),
+                  let imageData = try? Data(contentsOf: url as URL) else { return nil }
             
             if let image = UIImage(data: imageData) {
                 flickrPhoto.thumbnail = image
