@@ -81,7 +81,9 @@ extension ImageCollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! FlickrImageCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? FlickrImageCell else {
+            return UICollectionViewCell()
+        }
         let flickrImage = image(for: indexPath)
         cell.backgroundColor = .white
         cell.imageView.image = flickrImage.thumbnail
