@@ -1,22 +1,18 @@
 import UIKit
 
 class ImageDetailsViewController: UIViewController {
-
+    
+    @IBOutlet private weak var detailedImageView: UIImageView!
+    
+    var flickrImage: FlickrImage?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        loadDetailedPicture()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func loadDetailedPicture() {
+        detailedImageView.image = flickrImage?.thumbnail
     }
-    */
-
 }

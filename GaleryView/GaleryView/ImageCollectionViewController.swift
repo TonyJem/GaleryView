@@ -11,6 +11,8 @@ final class ImageCollectionViewController: UICollectionViewController {
     private let flickr = Flickr()
     private let itemsPerRow: CGFloat = 3
     
+    private var selectedIndexPath = IndexPath()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -88,6 +90,25 @@ extension ImageCollectionViewController {
         cell.backgroundColor = .white
         cell.imageView.image = flickrImage.thumbnail
         return cell
+    }
+}
+
+// MARK: - CollectionView Delegate
+extension ImageCollectionViewController {
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedIndexPath = indexPath
+        performSegue()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "showImageDetailsVC") {
+            let destinationVC = segue.destination as! ImageDetailsViewController
+            destinationVC.flickrImage = image(for: selectedIndexPath)
+        }
+    }
+    
+    private func performSegue() {
+        performSegue(withIdentifier: "showImageDetailsVC", sender: nil)
     }
 }
 
