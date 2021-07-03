@@ -10,10 +10,28 @@ class ImageDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadDetailedPicture()
+        fetchLargeImage()
     }
     
-    private func loadDetailedPicture() {
+    private func fetchLargeImage() {
+        
+        guard flickrImage?.largeImage == nil else {
+            detailedImageView.image = flickrImage?.largeImage
+            return
+        }
+        activityIndicator.startAnimating()
         detailedImageView.image = flickrImage?.thumbnail
+        
+        flickrImage?.loadLargeImage { [weak self] result in
+            guard let self = self else { return }
+            self.activityIndicator.stopAnimating()
+            
+            switch result {
+            case .success:
+                self.detailedImageView.image = self.flickrImage?.largeImage
+            case .failure:
+                return
+            }
+        }
     }
 }
