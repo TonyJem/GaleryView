@@ -3,6 +3,8 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -42,6 +44,7 @@
                                 </collectionViewCellContentView>
                                 <connections>
                                     <outlet property="imageView" destination="fWz-0o-WQN" id="vUj-vW-gxP"/>
+                                    <segue destination="jC1-xy-BFE" kind="show" id="2Un-8X-iaL"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -73,6 +76,22 @@
             </objects>
             <point key="canvasLocation" x="582.60869565217399" y="163.39285714285714"/>
         </scene>
+        <!--Image Details View Controller-->
+        <scene sceneID="FM2-o5-CvK">
+            <objects>
+                <viewController id="jC1-xy-BFE" customClass="ImageDetailsViewController" customModule="GaleryView" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6xR-DI-hbi">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Upk-vd-ooC"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="9w9-dP-Ftb"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oDF-OE-ju6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1414" y="163"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="jb1-bL-1MV">
             <objects>
@@ -92,4 +111,9 @@
             <point key="canvasLocation" x="-328.98550724637681" y="162.72321428571428"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
